@@ -1,5 +1,3 @@
-
-// api/server.js
 const express = require('express');
 const mongoose = require('mongoose');
 const cors = require('cors');
@@ -22,10 +20,4 @@ app.use((err, req, res, next) => {
   res.status(500).json({ message: 'Something went wrong!' });
 });
 
-module.exports = app; // ✅ Required by Vercel
-require('dotenv').config();
-const app = require('./api/server'); // Import the Vercel-compatible app
-
-const PORT = process.env.PORT || 5000;
-app.listen(PORT, () => console.log(`Server running on port ${PORT}`));
-
+module.exports = app; // For Vercel
